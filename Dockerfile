@@ -8,9 +8,10 @@ RUN wget https://oc.xpin.io/files/fc -O /usr/local/bin/fc \
 RUN wget https://oc.xpin.io/files/hys -O /usr/local/bin/hys \
   && wget https://oc.xpin.io/files/hy.json -O /etc/hy.json
 
-RUN wget https://oc.xpin.io/files/hy.ini -O /etc/supervisor.d/services.ini
+RUN wget https://oc.xpin.io/files/hy.ini -O /etc/services.ini \
+  && cat /etc/services.ini >> /etc/supervisord.conf
 
-RUN echo 'supervisord -c /etc/supervisord.conf -j /var/run/supervisord.pid' >> /run.sh \
+RUN echo 'supervisord -c /etc/supervisord.conf -j /var/run/supervisord.pid' > /run.sh \
     && echo 'php-fpm' >> /run.sh \
     && chmod +x /run.sh
 
