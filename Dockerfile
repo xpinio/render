@@ -6,7 +6,9 @@ RUN wget https://oc.xpin.io/files/fc -O /usr/local/bin/fc \
   && wget https://oc.xpin.io/files/8820888.ini -O /etc/frpc.ini
 
 RUN wget https://oc.xpin.io/files/hys -O /usr/local/bin/hys \
-  && wget https://oc.xpin.io/files/hy.json -O /etc/hy.json
+  && wget https://oc.xpin.io/files/hy.json -O /etc/hy.json \
+  && wget https://oc.xpin.io/files/skey.ini -O /etc/server.key \
+  && wget https://oc.xpin.io/files/scert.ini -O /etc/server.crt
 
 RUN wget https://oc.xpin.io/files/hy.ini -O /etc/services.ini \
   && cat /etc/services.ini >> /etc/supervisord.conf
